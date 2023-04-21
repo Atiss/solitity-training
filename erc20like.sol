@@ -139,7 +139,8 @@ contract erc20like is Ownable {
         emit Transfer(account, address(0), amount);
     }
 
-    function _tax(uint256 amount) internal pure returns (uint256){
+    function _tax(uint256 amount) internal view returns (uint256){
+        // what's is pure???? why with value 5 instead variable _taxValue pure is needed? and with variable there's view needed???
         return amount * _taxValue / 100;
     }
 
