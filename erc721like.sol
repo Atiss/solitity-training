@@ -49,8 +49,8 @@ contract erc721like is Context {
         require(_items[tokenId].seller != address(0), 'Token not for sale');
         uint256 price = _items[tokenId].price;
         require(msg.value >= price, 'Not enough payment');
-        safeTransferFrom(_owners[tokenId], payable(_msgSender()), tokenId);
         payable(_owners[tokenId]).transfer(msg.value);
+        safeTransferFrom(_owners[tokenId], payable(_msgSender()), tokenId);
         delete _items[tokenId];
         emit ItemBought(tokenId, _owners[tokenId], price);
     }
