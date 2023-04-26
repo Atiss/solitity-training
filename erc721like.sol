@@ -1,7 +1,7 @@
 
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.18;
 
 import "@openzeppelin/contracts/utils/Context.sol";
 
@@ -17,7 +17,7 @@ struct Item {
 contract erc721like is Context {
     string private _name;
     string private _symbol;
-    string private _baseURI = 'https://ipfs.io/ipfs/Qmapd8cQmkuFsGmEfGiY3eq8uYVP6LG9Z3zar3eUqsyikq?filename=';
+    string private _baseURI = 'https://ipfs.io/ipfs/QmNoG4xFu7cB7dQLRyp5jwy7T9wnCsVyBUw2HKzpJnk1J6?filename=';
     mapping(address => uint256) private _balances;
     mapping(uint256 => address) private _owners;
     mapping(uint256 => address) private _tokenApprovals;
@@ -167,7 +167,7 @@ contract erc721like is Context {
     }
 
     function _encodeTokenURI(uint256 tokenId) private view returns (string memory) {
-        return string(abi.encodePacked(_baseURI, tokenId, '.jpg'));
+        return string(abi.encodePacked(_baseURI, tokenId, '.json'));
     }
 
 
